@@ -16,6 +16,6 @@ public class ConnectionFactory {
 	}
 	
 	public static Connection obtemConexao() throws SQLException {
-		return DriverManager.getConnection("jdbc:mysql://localhost/newprojeto_7_semestre_teste1?useTimezone=true&serverTimezone=UTC&user=root&password=");
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/novoprojeto_7_semestre?user=root");
 	}
 }
