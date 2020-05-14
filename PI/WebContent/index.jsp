@@ -6,19 +6,27 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>estufa - Cadastros</title>
+    <title>Houseplant</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Barra superior com os menus de navegaÃ§Ã£o -->
-	<c:import url="Menu.jsp"/>
-    <!-- Container Principal -->
-    <div id="main" class="container">
-        <h3 class="page-header">Cadastros</h3>
-
+    <div class="containerindex">
+        <section class="card">
+            <div class="plant">
+                <img class="img" src="img/flower.png">
+            </div>
+            <div class="principal">
+                <h1 class="title">
+                    <span class="title-house">HOUSE</span>
+                    <span class="title-plant">PLANT</span>
+                </h1>
+                <a href="ListarPlantas.jsp"><button class="button">Minhas plantas</button> </a>
+                
+            </div>
+        </section>
     </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

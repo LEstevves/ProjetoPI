@@ -7,7 +7,7 @@
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>estufa - Visualizar Planta</title>
+            <title>Visualizar Planta</title>
 
             <link href="css/bootstrap.min.css" rel="stylesheet">
             <link href="css/style.css" rel="stylesheet">
@@ -41,10 +41,10 @@
 				<c:import url="Menu.jsp"/>
                 <!-- Container Principal -->
                 <div id="main" class="container">
-                    <h3 class="page-header">Visualizar Planta #${planta.id }</h3>
+                    <h3 class="page-header">🌱 Visualizar Planta #${planta.id }</h3>
                     <div class="row">
                         <div class="col-md-12">
-                            <p><strong>Nome</strong>
+                            <p><strong>Nome da Planta:</strong>
                             </p>
                             <p>
                                 ${planta.nome }
@@ -52,49 +52,53 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <p><strong>TempMin</strong>
+                        <div class="col-md-4">
+                            <p><strong>Temperatura Mínima</strong>
                             </p>
                             <p>
                                 ${planta.tempMin }
                             </p>
                         </div>
-                        <div class="col-md-6">
-                            <p><strong>TempMax</strong>
+                        <div class="col-md-4">
+                            <p><strong>Temperatura Máxima</strong>
                             </p>
                             <p>
                                 ${planta.tempMax }
                             </p>
                         </div>
                    		 </div>
-                           <div class="col-md-6">
-                            <p><strong>UmidArMin</strong>
+                   		  <div class="row">
+                           <div class="col-md-4">
+                            <p><strong>Umidade do Ar Mínima</strong>
                             </p>
                             <p>
                                 ${planta.umidArMin }
                             </p>
                        </div>
-                         <div class="col-md-6">
-                            <p><strong>UmidArMax</strong>
+                         <div class="col-md-4">
+                            <p><strong>Umidade do Ar Máxima</strong>
                             </p>
                             <p>
                                 ${planta.umidArMax }
                             </p>
                         </div>
-                        <div class="col-md-6">
-                            <p><strong>UmidSoloMin</strong>
+                        </div>
+                         <div class="row">
+                        <div class="col-md-4">
+                            <p><strong>Umidade do Solo Mínima</strong>
                             </p>
                             <p>
                                 ${planta.umidSoloMin }
                             </p>
                         </div>
                         <div class="row">
-                        <div class="col-md-6">
-                            <p><strong>UmidSoloMax</strong>
+                        <div class="col-md-4">
+                            <p><strong>Umidade do Solo Máxima</strong>
                             </p>
                             <p>
                                 ${planta.umidSoloMax }
                             </p>
+                        </div>
                         </div>
                      </div>   
                     <hr />

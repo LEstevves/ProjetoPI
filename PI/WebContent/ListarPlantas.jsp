@@ -42,13 +42,13 @@
 			<c:import url="Menu.jsp"/>
             <!-- Container Principal -->
             <div id="main" class="container">
-                <form action="listar_plantas.do" method="post">
-                    <div id="top" class="row">
-                        <div class="col-md-3">
-                            <h2>Plantas</h2>
+              <div class="col-md-12">
+                            <h2 class="text-center">Minhas Plantas 🌼</h2> 
                         </div>
-
-                        <div class="col-md-6">
+                        
+                <form action="listar_plantas.do" method="post">
+                    <div class="top" "class="row " style="margin:0 auto; ">
+                        <div class="col-md-6" style="margin-left: 140px">
                             <div class="input-group h2">
                                 <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Plantas (deixe vazio para trazer todos)">
                                 <span class="input-group-btn">
@@ -60,59 +60,35 @@
                         </div>
 
                         <div class="col-md-3">
-                            <a href="CriarPlanta.jsp" class="btn btn-primary pull-right h2">Nova Planta</a>
+                            <a href="CriarPlanta.jsp" class="btn btn-info pull-right h2">Adicionar Nova Planta</a>
                         </div>
                     </div>
                     <!-- /#top -->
                 </form>
                 <hr />
                 <c:if test="${not empty lista}">
-                <div id="list" class="row">
-
-                    <div class="table-responsive col-md-12">
-                        <table class="table table-striped" cellspacing="0" cellpadding="0">
+                <div id="list" class="row  center-block" style="width:70%; ">
+	
+                    <div class="table-responsive col-md-12 ">
+                        <table class="table table-striped table-hover" cellspacing="0" cellpadding="0" style="margin-top: 20px; ">
                             <thead>
-                                <tr>
-                                    <th>Id</th>
+                                <tr class="info">
+                                    <th>ID</th>
                                     <th>Nome</th>
-                                    <th>TempMin</th>
-                                    <th>TempMax</th>
-                                    <th>UmidArMin</th>
-                                    <th>UmidArMax</th>
-                                    <th>UmidSoloMin</th>
-                                    <th>UmidSoloMax</th>
                                     <th class="actions">Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
           					<c:forEach var="planta" items="${lista }">
-                                       <tr>
+                                       <tr class="table-info">
                                             <td>
                                                ${planta.id }
                                             </td>
                                             <td>
                                                 ${planta.nome }
                                             </td>
-                                            <td>
-                                                ${planta.tempMin }
-                                            </td>
-                                            <td>
-                                                ${planta.tempMax }
-                                            </td>
-                                            <td>
-                                                ${planta.umidArMin }
-                                            </td>
-                                            <td>
-                                                ${planta.umidArMax }
-                                            </td>
-                                            <td>
-                                                ${planta.umidSoloMin }
-                                            </td>
-                                            <td>
-                                                ${planta.umidSoloMax }
-                                            </td>
                                             <td class="actions">
-                                                <a class="btn btn-success btn-xs" href="ManterPlanta.do?acao=Visualizar&id=${planta.id }">Visualizar</a>
+                                                <a class="btn btn-success btn-xs" href="ManterPlanta.do?acao=Visualizar&id=${planta.id }">Ver detalhes</a>
                                                 <a class="btn btn-warning btn-xs" href="ManterPlanta.do?acao=Editar&id=${planta.id }">Editar</a>
                                                 <button id="btn${planta.id }%>" type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-modal" data-planta="${planta.id }">Excluir</button>
                                             </td>
@@ -126,24 +102,7 @@
                 </div>
                 <!-- /#list -->
 
-                <div id="bottom" class="row">
-                    <div class="col-md-12">
-                        <!-- paginação ainda não foi implementada -->
-                        <ul class="pagination">
-                            <li class="disabled"><a>&lt; Anterior</a>
-                            </li>
-                            <li class="disabled"><a>1</a>
-                            </li>
-                            <li><a href="#">2</a>
-                            </li>
-                            <li><a href="#">3</a>
-                            </li>
-                            <li class="next"><a href="#" rel="next">Próximo &gt;</a>
-                            </li>
-                        </ul>
-                        <!-- /.pagination -->
-                    </div>
-                </div>
+               
                 </c:if>
                 <!-- /#bottom -->
             </div>
