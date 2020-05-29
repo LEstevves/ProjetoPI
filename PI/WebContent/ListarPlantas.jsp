@@ -90,6 +90,7 @@
                                             <td class="actions">
                                                 <a class="btn btn-success btn-xs" href="ManterPlanta.do?acao=Visualizar&id=${planta.id }">Ver detalhes</a>
                                                 <a class="btn btn-warning btn-xs" href="ManterPlanta.do?acao=Editar&id=${planta.id }">Editar</a>
+                                                <a class="btn btn-success btn-xs" href="ThingspeakController?tempMin=${planta.tempMin }&tempMax=${planta.tempMax }">Thingspeak</a>
                                                 <button id="btn${planta.id }%>" type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-modal" data-planta="${planta.id }">Excluir</button>
                                             </td>
                                         </tr>

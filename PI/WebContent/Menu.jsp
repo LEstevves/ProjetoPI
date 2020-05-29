@@ -12,6 +12,8 @@
                     </li>
                      <li><a href="Dados.jsp">Dados</a>
                     </li>
+                    <li><a href="Alerta.jsp"></a>
+                    </li>
                 </ul>
             </div>
         </div>
