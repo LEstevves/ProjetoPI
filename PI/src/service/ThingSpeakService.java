@@ -14,9 +14,9 @@ import com.google.gson.JsonSyntaxException;
 import model.Root;
 
 public class ThingSpeakService {
-	private static final String apiKey="1P1G3X126M705ZZZ";
+	private static final String apiKey="JAIPO5KKYB7ARF1C";
     private static final String baseThingspeakUrl=
-        "https://api.thingspeak.com/channels/1049229/feeds.json";
+        "https://api.thingspeak.com/channels/1049229/feeds.json?results=3";
     
     public static Root getDataInfo()
     {

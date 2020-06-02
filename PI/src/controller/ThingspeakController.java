@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Feed;
+import model.Planta;
 import model.Root;
 import service.ThingSpeakService;
+import service.VendedorService;
 
 /**
  * Servlet implementation class ThingspeakController
@@ -36,14 +39,33 @@ public class ThingspeakController extends HttpServlet {
 		// TODO Auto-generated method stub
 		String tempMin = request.getParameter("tempMin");
 		String tempMax = request.getParameter("tempMax");
+		String umidArMin = request.getParameter("umidArMin");
+		String umidArMax = request.getParameter("umidArMax");
+		
         Root dataInfoObject=ThingSpeakService.getDataInfo();
-        dataInfoObject.getFeeds().get(0).getField1();
+        String x = dataInfoObject.getFeeds().get(0).getField1();
+        String umidAr = dataInfoObject.getFeeds().get(0).getField2();
+        int xumidAr = Integer.parseInt(umidAr);
+        int y = Integer.parseInt(x);
+        
+        
         request.setAttribute("tempMin", tempMin);
         request.setAttribute("tempMax", tempMax);
-        request.setAttribute("temp", dataInfoObject.getFeeds().get(0).getField1());
+        request.setAttribute("umidArMin", umidArMin);
+        request.setAttribute("umidArMax", umidArMax);
         
+        //sensores
+        request.setAttribute("temp", y);
+        request.setAttribute("umidAr", xumidAr);
+        
+        VendedorService vendedor = new VendedorService();
+        ArrayList<Planta> lista = null;
+        lista = vendedor.listarPlantas();
+       
+                
         HttpSession session = request.getSession();
         session.setAttribute("thingspeak", dataInfoObject);
+        session.setAttribute("lista", lista);
         
         RequestDispatcher dispatcher = request
 				.getRequestDispatcher("Alerta.jsp");

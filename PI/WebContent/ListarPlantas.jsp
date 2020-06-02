@@ -48,16 +48,16 @@
                         
                 <form action="listar_plantas.do" method="post">
                     <div class="top" "class="row " style="margin:0 auto; ">
-                        <div class="col-md-6" style="margin-left: 140px">
+                    <!--     <div class="col-md-6" style="margin-left: 140px">
                             <div class="input-group h2">
-                                <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Plantas (deixe vazio para trazer todos)">
+                                <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Plantas">
                                 <span class="input-group-btn">
                 <button class="btn btn-primary" type="submit" name="acao" value="buscar">
                     <span class="glyphicon glyphicon-search"></span>
                                 </button>
                                 </span>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="col-md-3">
                             <a href="CriarPlanta.jsp" class="btn btn-info pull-right h2">Adicionar Nova Planta</a>
@@ -80,6 +80,7 @@
                             </thead>
                             <tbody>
           					<c:forEach var="planta" items="${lista }">
+          					
                                        <tr class="table-info">
                                             <td>
                                                ${planta.id }
@@ -88,10 +89,15 @@
                                                 ${planta.nome }
                                             </td>
                                             <td class="actions">
-                                                <a class="btn btn-success btn-xs" href="ManterPlanta.do?acao=Visualizar&id=${planta.id }">Ver detalhes</a>
-                                                <a class="btn btn-warning btn-xs" href="ManterPlanta.do?acao=Editar&id=${planta.id }">Editar</a>
-                                                <a class="btn btn-success btn-xs" href="ThingspeakController?tempMin=${planta.tempMin }&tempMax=${planta.tempMax }">Thingspeak</a>
-                                                <button id="btn${planta.id }%>" type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-modal" data-planta="${planta.id }">Excluir</button>
+                                                <a class="btn btn-success btn-sm" href="ManterPlanta.do?acao=Visualizar&id=${planta.id }">Ver detalhes</a>
+                                                <a class="btn btn-warning btn-sm" href="ManterPlanta.do?acao=Editar&id=${planta.id }">Editar</a>
+                                                <button id="btn${planta.id }%>" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-modal" data-planta="${planta.id }">Excluir</button>
+                                            	<c:if test = "${temp >= planta.tempMax}">
+                                           		<a class="btn btn-default btn-sm" href="ThingspeakController?tempMin=${planta.tempMin }&tempMax=${planta.tempMax }"><span class="glyphicon glyphicon-exclamation-sign"></a>
+                                                </c:if>
+                                                <c:if test = "${umidAr <= planta.umidArMin}">
+                                           		<a class="btn btn-default btn-sm" href="ThingspeakController?umidArMin=${planta.umidArMin }&umidArMax=${planta.umidArMax }"><span class="glyphicon glyphicon-exclamation-sign"></a>
+                                                </c:if>
                                             </td>
                                         </tr>
                             </c:forEach>
@@ -116,6 +122,8 @@
                     var recipient = button.data('planta');
                     $("#id_excluir").val(recipient);
                 });
+                
+                setTimeout(function(){window.top.location="listar_plantas.do"} , 10000);
             </script>
         </body>
 

@@ -16,9 +16,10 @@
 <body>
 <c:import url="Menu.jsp"/>
 	
-        ${tempMin} <br>
-        ${tempMax} <br>
-        ${temp}
+	<h2>Temperatura na mini estufa:  ${temp} ºC</h2>
+	
+	<h3> Temperatura ideal mínima:  ${tempMin} </h3>
+    <h3> Temperatura ideal máxima:  ${tempMax} </h3>
 	
 	<script type="text/javascript">
 	setTimeout(function(){window.top.location="ThingspeakController?tempMin=${tempMin}&tempMax=${tempMax }"} , 5000);

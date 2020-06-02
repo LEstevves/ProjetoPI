@@ -8,7 +8,7 @@
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>estufa - Alterar Planta</title>
+            <title>Alterar Planta</title>
 
             <link href="css/bootstrap.min.css" rel="stylesheet">
             <link href="css/style.css" rel="stylesheet">
@@ -27,7 +27,7 @@
           			 	 <input type="hidden" name="id" value="${planta.id }" />
           			  	<div class="row">
                 			<div class="form-group col-md-12">
-                   				 <label for="nome">Nome:</label>
+                   				 <label for="nome">Nome da Planta:</label>
                     			<input type="text" class="form-control" name="nome" id="nome" required maxlength="100" placeholder="nome completo" value="${planta.nome }">
                     		</div>
                         </div>

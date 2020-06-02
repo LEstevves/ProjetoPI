@@ -23,7 +23,7 @@
                     <span class="title-house">HOUSE</span>
                     <span class="title-plant">PLANT</span>
                 </h1>
-                <a href="ListarPlantas.jsp"><button class="button">Minhas plantas</button> </a>
+                <a href="listar_plantas.do"><button class="button">Minhas plantas</button> </a>
                 
             </div>
         </section>
