@@ -55,12 +55,15 @@ public class ListarPlantasController extends HttpServlet {
 		}*/
 		
 		 Root dataInfoObject=ThingSpeakService.getDataInfo();
-	     String x = dataInfoObject.getFeeds().get(0).getField1();
-	     int y = Integer.parseInt(x);
-	       request.setAttribute("temp", y);
-	       String umidAr = dataInfoObject.getFeeds().get(0).getField2();
-	       int xumidAr = Integer.parseInt(umidAr);
-	      request.setAttribute("umidAr", xumidAr);
+		 //Temperatura
+	     String xtemp = dataInfoObject.getFeeds().get(0).getField1();
+	     int ytemp = Integer.parseInt(xtemp);
+	       request.setAttribute("temp", ytemp);
+	     
+	     //Umidade solo 
+	     String xumidSolo = dataInfoObject.getFeeds().get(0).getField2();
+	     int yumidSolo = Integer.parseInt(xumidSolo);
+	      request.setAttribute("umidSolo", yumidSolo);
 
 		RequestDispatcher dispatcher = request
 				.getRequestDispatcher("ListarPlantas.jsp");

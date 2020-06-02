@@ -93,10 +93,16 @@
                                                 <a class="btn btn-warning btn-sm" href="ManterPlanta.do?acao=Editar&id=${planta.id }">Editar</a>
                                                 <button id="btn${planta.id }%>" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-modal" data-planta="${planta.id }">Excluir</button>
                                             	<c:if test = "${temp >= planta.tempMax}">
-                                           		<a class="btn btn-default btn-sm" href="ThingspeakController?tempMin=${planta.tempMin }&tempMax=${planta.tempMax }"><span class="glyphicon glyphicon-exclamation-sign"></a>
+                                           		<a class="btn btn-default btn-sm" href="AlertaTemp.do?tempMin=${planta.tempMin }&tempMax=${planta.tempMax }"><span class="glyphicon glyphicon-exclamation-sign"></a>
                                                 </c:if>
-                                                <c:if test = "${umidAr <= planta.umidArMin}">
-                                           		<a class="btn btn-default btn-sm" href="ThingspeakController?umidArMin=${planta.umidArMin }&umidArMax=${planta.umidArMax }"><span class="glyphicon glyphicon-exclamation-sign"></a>
+                                                <c:if test = "${temp <= planta.tempMin}">
+                                           		<a class="btn btn-default btn-sm" href="AlertaTemp.do?tempMin=${planta.tempMin }&tempMax=${planta.tempMax }"><span class="glyphicon glyphicon-exclamation-sign"></a>
+                                                </c:if>
+                                                <c:if test = "${umidSolo >= planta.umidSoloMax}">
+                                           		<a class="btn btn-default btn-sm" href="AlertaUmidSolo.do?umidSoloMin=${planta.umidSoloMin }&umidSoloMax=${planta.umidSoloMax }"><span class="glyphicon glyphicon-exclamation-sign"></a>
+                                                </c:if>
+                                                <c:if test = "${umidSolo <= planta.umidSoloMin}">
+                                           		<a class="btn btn-default btn-sm" href="AlertaUmidSolo.do?umidSoloMin=${planta.umidSoloMin }&umidSoloMax=${planta.umidSoloMax }"><span class="glyphicon glyphicon-exclamation-sign"></a>
                                                 </c:if>
                                             </td>
                                         </tr>

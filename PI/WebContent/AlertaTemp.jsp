@@ -6,7 +6,7 @@
  <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Alerta</title>
+	<title>Alerta temperatura</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -22,7 +22,7 @@
     <h3> Temperatura ideal máxima:  ${tempMax} </h3>
 	
 	<script type="text/javascript">
-	setTimeout(function(){window.top.location="ThingspeakController?tempMin=${tempMin}&tempMax=${tempMax }"} , 5000);
+	setTimeout(function(){window.top.location="AlertaTemp.do?tempMin=${tempMin}&tempMax=${tempMax }"} , 5000);
 	</script>
 
 </body>

@@ -20,14 +20,14 @@ import service.VendedorService;
 /**
  * Servlet implementation class ThingspeakController
  */
-@WebServlet("/ThingspeakController")
-public class ThingspeakController extends HttpServlet {
+@WebServlet("/AlertaTemp.do")
+public class AlertaTempController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ThingspeakController() {
+    public AlertaTempController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,38 +37,30 @@ public class ThingspeakController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		String tempMin = request.getParameter("tempMin");
 		String tempMax = request.getParameter("tempMax");
-		String umidArMin = request.getParameter("umidArMin");
-		String umidArMax = request.getParameter("umidArMax");
 		
         Root dataInfoObject=ThingSpeakService.getDataInfo();
-        String x = dataInfoObject.getFeeds().get(0).getField1();
-        String umidAr = dataInfoObject.getFeeds().get(0).getField2();
-        int xumidAr = Integer.parseInt(umidAr);
-        int y = Integer.parseInt(x);
-        
+        String xtemp = dataInfoObject.getFeeds().get(0).getField1();
+        int ytemp = Integer.parseInt(xtemp);        
         
         request.setAttribute("tempMin", tempMin);
-        request.setAttribute("tempMax", tempMax);
-        request.setAttribute("umidArMin", umidArMin);
-        request.setAttribute("umidArMax", umidArMax);
+        request.setAttribute("tempMax", tempMax);   
         
         //sensores
-        request.setAttribute("temp", y);
-        request.setAttribute("umidAr", xumidAr);
+        request.setAttribute("temp", ytemp);
         
         VendedorService vendedor = new VendedorService();
         ArrayList<Planta> lista = null;
         lista = vendedor.listarPlantas();
-       
-                
+    
         HttpSession session = request.getSession();
         session.setAttribute("thingspeak", dataInfoObject);
         session.setAttribute("lista", lista);
         
         RequestDispatcher dispatcher = request
-				.getRequestDispatcher("Alerta.jsp");
+				.getRequestDispatcher("AlertaTemp.jsp");
 		dispatcher.forward(request, response);
 	}
 
