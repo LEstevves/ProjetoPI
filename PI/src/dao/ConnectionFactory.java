@@ -16,6 +16,6 @@ public class ConnectionFactory {
 	}
 	
 	public static Connection obtemConexao() throws SQLException {
-		return DriverManager.getConnection("jdbc:mysql://localhost:3306/novoprojeto_7_semestre?user=root");
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/projeto_7_semestre_teste1?user=root&useSSL=false");
 	}
 }

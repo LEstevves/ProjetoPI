@@ -67,22 +67,6 @@
                             </p>
                         </div>
                    		 </div>
-                   		  <div class="row">
-                           <div class="col-md-4">
-                            <p><strong>Umidade do Ar Mínima</strong>
-                            </p>
-                            <p>
-                                ${planta.umidArMin }
-                            </p>
-                       </div>
-                         <div class="col-md-4">
-                            <p><strong>Umidade do Ar Máxima</strong>
-                            </p>
-                            <p>
-                                ${planta.umidArMax }
-                            </p>
-                        </div>
-                        </div>
                          <div class="row">
                         <div class="col-md-4">
                             <p><strong>Umidade do Solo Mínima</strong>
@@ -100,13 +84,24 @@
                             </p>
                         </div>
                         </div>
-                     </div>   
+                     </div> 
+                       
+                     <div class="row">
+                        <div class="col-md-4">
+                            <p><strong>Comentários</strong>
+                            </p>
+                            <p>
+                                ${planta.descricao }
+                            </p>
+                        </div>
+                        </div>
+                        
                     <hr />
                     <div id="actions" class="row">
                         <div class="col-md-12">
                             <a href="ManterPlanta.do?acao=Editar&id=${planta.id }" class="btn btn-primary">Editar</a>
                             <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-                            <a href="ListarPlantas.jsp" class="btn btn-default">Voltar</a>
+                            <a href="listar_plantas.do" class="btn btn-default">Voltar</a>
                         </div>
                     </div>
                 </div>

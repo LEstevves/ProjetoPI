@@ -36,26 +36,13 @@
                                 <label for="tempMin">TempMin </label>
                    				 <input type="text" class="form-control" name="tempMin" id="tempMin" maxlength="20" placeholder="MIN" value="${planta.tempMin }">
                    			</div>
-                   			</div>	 
+                   				 
                    				 
                    		    <div class="form-group col-md-6">
                                 <label for="tempMax">TempMax</label>
                                 <input type="text" class="form-control" name="tempMax" id="tempMax" maxlength="20" placeholder="MAX" value="${planta.tempMax }">
                             </div>
-                   				 
-                   			<div class="row">
-                           <div class="form-group col-md-6">
-                                <label for="umidArMin">UmidArMin </label>
-                   				 <input type="text" class="form-control" name="umidArMin" id="umidArMin" maxlength="20" placeholder="MIN" value="${planta.umidArMin }">
-                   			</div>
-                   				 
-                   				 
-                   		    <div class="form-group col-md-6">
-                                <label for="umidArMax">UmidArMax</label>
-                                <input type="text" class="form-control" name="umidArMax" id="umidArMax" maxlength="20" placeholder="MAX" value="${planta.umidArMax }">
                             </div>
-                            </div>
-                            
                             
                             <div class="row">
                             <div class="form-group col-md-6">
@@ -69,14 +56,19 @@
                                 <input type="text" class="form-control" name="umidSoloMax" id="umidSoloMax" maxlength="20" placeholder="MAX" value="${planta.umidSoloMax }">
                             </div>
                             </div>
-                   			
-                   				 
+                            
+                            <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="descricao">Comentários: </label> <br>
+                   				 <textarea id="descricao" name="descricao" rows="3" cols="75" placeholder="Escreva um novo comentário aqui."></textarea>
+                   			</div>
+                   			</div>
 
                         <hr />
                         <div id="actions" class="row">
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary" name="acao" value="Alterar">Salvar</button>
-                                <a href="ListarPlantas.jsp" class="btn btn-default">Cancelar</a>
+                                <a href="listar_plantas.do" class="btn btn-default">Cancelar</a>
                             </div>
                         </div>
                     </form>

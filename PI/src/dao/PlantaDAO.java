@@ -12,17 +12,16 @@ import model.Planta;
 public class PlantaDAO {
 	
 	public int criar(Planta planta) {
-		String sqlInsert = "INSERT INTO planta(nome, tempMin, tempMax, umidArMin, umidArMax, umidSoloMin, umidSoloMax) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		String sqlInsert = "INSERT INTO planta(nome, tempMin, tempMax, umidSoloMin, umidSoloMax, descricao) VALUES (?, ?, ?, ?, ?, ?)";
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlInsert);) {
 			stm.setString(1, planta.getNome());
 			stm.setString(2, planta.getTempMin());
 			stm.setString(3, planta.getTempMax());
-			stm.setString(4, planta.getUmidArMin());
-			stm.setString(5, planta.getUmidArMax());
-			stm.setString(6, planta.getUmidSoloMin());
-			stm.setString(7, planta.getUmidSoloMax());
+			stm.setString(4, planta.getUmidSoloMin());
+			stm.setString(5, planta.getUmidSoloMax());
+			stm.setString(6, planta.getDescricao());
 			stm.execute();
 			String sqlQuery = "SELECT LAST_INSERT_ID()";
 			try (PreparedStatement stm2 = conn.prepareStatement(sqlQuery);
@@ -41,18 +40,17 @@ public class PlantaDAO {
 	
 	
 	public void atualizar(Planta planta) {
-		String sqlUpdate = "UPDATE planta SET nome=?, tempMin=?, tempMax=?, umidArMin=?, umidArMax=?, umidSoloMin=?, umidSoloMax=? WHERE id=?";
+		String sqlUpdate = "UPDATE planta SET nome=?, tempMin=?, tempMax=?, umidSoloMin=?, umidSoloMax=?, descricao=? WHERE id=?";
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
 			stm.setString(1, planta.getNome());
 			stm.setString(2, planta.getTempMin());
 			stm.setString(3, planta.getTempMax());
-			stm.setString(4, planta.getUmidArMin());
-			stm.setString(5, planta.getUmidArMax());
-			stm.setString(6, planta.getUmidSoloMin());
-			stm.setString(7, planta.getUmidSoloMax());
-			stm.setInt(8, planta.getId());
+			stm.setString(4, planta.getUmidSoloMin());
+			stm.setString(5, planta.getUmidSoloMax());
+			stm.setString(6, planta.getDescricao());
+			stm.setInt(7, planta.getId());
 			stm.execute();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -79,7 +77,7 @@ public class PlantaDAO {
 	public Planta carregar(int id) {
 		Planta planta = new Planta();
 		planta.setId(id);
-		String sqlSelect = "SELECT nome, tempMin, tempMax, umidArMin, umidArMax, umidSoloMin, umidSoloMax FROM planta WHERE id = ?";
+		String sqlSelect = "SELECT nome, tempMin, tempMax, umidSoloMin, umidSoloMax, descricao FROM planta WHERE id = ?";
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
@@ -89,19 +87,17 @@ public class PlantaDAO {
 					planta.setNome(rs.getString("nome"));
 					planta.setTempMin(rs.getString("tempMin"));
 					planta.setTempMax(rs.getString("tempMax"));
-					planta.setUmidArMin(rs.getString("umidArMin"));
-					planta.setUmidArMax(rs.getString("umidArMax"));
 					planta.setUmidSoloMin(rs.getString("umidSoloMin"));
 					planta.setUmidSoloMax(rs.getString("umidSoloMax"));
+					planta.setDescricao(rs.getString("descricao"));
 				} else {
 					planta.setId(-1);
 					planta.setNome(null);
 					planta.setTempMin(null);
 					planta.setTempMax(null);
-					planta.setUmidArMin(null);
-					planta.setUmidArMax(null);
 					planta.setUmidSoloMin(null);
 					planta.setUmidSoloMax(null);
+					planta.setDescricao(null);
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -116,7 +112,7 @@ public class PlantaDAO {
 	public ArrayList<Planta> listarPlantas() {
 		Planta planta;
 		ArrayList<Planta> lista = new ArrayList<>();
-		String sqlSelect = "SELECT id, nome, tempMin, tempMax, umidArMin, umidArMax, umidSoloMin, umidSoloMax FROM planta";
+		String sqlSelect = "SELECT id, nome, tempMin, tempMax, umidSoloMin, umidSoloMax, descricao FROM planta";
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
@@ -127,10 +123,9 @@ public class PlantaDAO {
 					planta.setNome(rs.getString("nome"));
 					planta.setTempMin(rs.getString("tempMin"));
 					planta.setTempMax(rs.getString("tempMax"));
-					planta.setUmidArMin(rs.getString("umidArMin"));
-					planta.setUmidArMax(rs.getString("umidArMax"));
 					planta.setUmidSoloMin(rs.getString("umidSoloMin"));
 					planta.setUmidSoloMax(rs.getString("umidSoloMax"));
+					planta.setDescricao(rs.getString("descricao"));
 					lista.add(planta);
 				}
 			} catch (SQLException e) {
@@ -147,7 +142,7 @@ public class PlantaDAO {
 	public ArrayList<Planta> listarPlantas(String chave) {
 		Planta planta;
 		ArrayList<Planta> lista = new ArrayList<>();
-		String sqlSelect = "SELECT id, nome, tempMin, tempMax, umidArMin, umidArMax, umidSoloMin, umidSoloMax FROM planta where upper(nome) like ?";
+		String sqlSelect = "SELECT id, nome, tempMin, tempMax, umidSoloMin, umidSoloMax, descricao FROM planta where upper(nome) like ?";
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
@@ -159,10 +154,9 @@ public class PlantaDAO {
 					planta.setNome(rs.getString("nome"));
 					planta.setTempMin(rs.getString("tempMin"));
 					planta.setTempMax(rs.getString("tempMax"));
-					planta.setUmidArMin(rs.getString("umidArMin"));
-					planta.setUmidArMax(rs.getString("umidArMax"));
 					planta.setUmidSoloMin(rs.getString("umidSoloMin"));
 					planta.setUmidSoloMax(rs.getString("umidSoloMax"));
+					planta.setDescricao(rs.getString("descricao"));
 					lista.add(planta);
 				}
 			} catch (SQLException e) {

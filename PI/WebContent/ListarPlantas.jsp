@@ -43,7 +43,7 @@
             <!-- Container Principal -->
             <div id="main" class="container">
               <div class="col-md-12">
-                            <h2 class="text-center">Minhas Plantas 🌼</h2> 
+                            <h2 class="text-center">❁ Minhas Plantas ❁</h2> 
                         </div>
                         
                 <form action="listar_plantas.do" method="post">
@@ -59,7 +59,7 @@
                             </div>
                         </div> -->
 
-                        <div class="col-md-3">
+                        <div class="col-md-10">
                             <a href="CriarPlanta.jsp" class="btn btn-info pull-right h2">Adicionar Nova Planta</a>
                         </div>
                     </div>

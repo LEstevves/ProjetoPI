@@ -15,11 +15,19 @@
 </head>
 <body>
 <c:import url="Menu.jsp"/>
-	
+	<div class="container row center-block">
+	<div class=" col-md-12"  style="margin: 100px auto 0 auto; ">
+	<div class="alert alert-danger text-center text-uppercase">
 	<h2>Umidade do solo na mini estufa:  ${umidSolo} </h2>
-	
+	</div>
+	<div class="text-center alert alert-warning">
 	<h3> Umidade do solo ideal mínima:  ${umidSoloMin} </h3>
+    </div>
+    <div class="text-center alert alert-warning">
     <h3> Umidade do solo ideal máxima:  ${umidSoloMax} </h3>
+    </div>
+	</div>
+	</div>
 	
 	<script type="text/javascript">
 	setTimeout(function(){window.top.location="AlertaUmidSolo.do?umidSoloMin=${umidSoloMin}&umidSoloMax=${umidSoloMax }"} , 5000);

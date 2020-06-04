@@ -35,10 +35,9 @@ public class ManterPlantaController extends HttpServlet {
 		String pNome = request.getParameter("nome");
 		String pTempMin = request.getParameter("tempMin");
 		String pTempMax = request.getParameter("tempMax");
-		String pUmidArMin = request.getParameter("umidArMin");
-		String pUmidArMax = request.getParameter("umidArMax");
 		String pUmidSoloMin = request.getParameter("umidSoloMin");
-		String pUmidSoloMax = request.getParameter("umidSoloMax");		
+		String pUmidSoloMax = request.getParameter("umidSoloMax");	
+		String pDescricao = request.getParameter("descricao");	
 		int id = -1;
 		try {
 			id = Integer.parseInt(pId);
@@ -52,10 +51,9 @@ public class ManterPlantaController extends HttpServlet {
 		planta.setNome(pNome);
 		planta.setTempMin(pTempMin);
 		planta.setTempMax(pTempMax);
-		planta.setUmidArMin(pUmidArMin);
-		planta.setUmidArMax(pUmidArMax);
 		planta.setUmidSoloMin(pUmidSoloMin);
 		planta.setUmidSoloMax(pUmidSoloMax);
+		planta.setDescricao(pDescricao);
 		
 		PlantaService ps = new PlantaService();
 		RequestDispatcher view = null;

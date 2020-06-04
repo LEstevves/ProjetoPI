@@ -10,10 +10,9 @@ public class Planta implements Serializable {
 	public String nome;
 	public String tempMin;
 	public String tempMax;
-	public String umidArMin;
-	public String umidArMax;
 	public String umidSoloMin;
 	public String umidSoloMax;
+	public String descricao;
 	
 	public Planta() {
 	}
@@ -44,18 +43,6 @@ public class Planta implements Serializable {
 	public void setTempMax(String tempMax) {
 		this.tempMax = tempMax;
 	}
-	public String getUmidArMin() {
-		return umidArMin;
-	}
-	public void setUmidArMin(String umidArMin) {
-		this.umidArMin = umidArMin;
-	}
-	public String getUmidArMax() {
-		return umidArMax;
-	}
-	public void setUmidArMax(String umidArMax) {
-		this.umidArMax = umidArMax;
-	}
 	public String getUmidSoloMin() {
 		return umidSoloMin;
 	}
@@ -68,14 +55,25 @@ public class Planta implements Serializable {
 	public void setUmidSoloMax(String umidSoloMax) {
 		this.umidSoloMax = umidSoloMax;
 	}
-	@Override
-	public String toString() {
-		return "Planta [id=" + id + ", nome=" + nome + ", tempMin=" + tempMin + ", tempMax=" + tempMax + ", umidArMin="
-				+ umidArMin + ", umidArMax=" + umidArMax + ", umidSoloMin=" + umidSoloMin + ", umidSoloMax="
-				+ umidSoloMax + "]";
+	public String getDescricao() {
+		return descricao;
 	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+
 		
 	
+	@Override
+	public String toString() {
+		return "Planta [id=" + id + ", nome=" + nome + ", tempMin=" + tempMin + ", tempMax=" + tempMax
+				+ ", umidSoloMin=" + umidSoloMin + ", umidSoloMax=" + umidSoloMax + ", descricao=" + descricao + "]";
+	}
+
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -102,15 +100,10 @@ public class Planta implements Serializable {
 				return false;
 		} else if (!tempMin.equals(other.tempMin))
 			return false;
-		if (umidArMax == null) {
-			if (other.umidArMax != null)
+		if (descricao == null) {
+			if (other.descricao != null)
 				return false;
-		} else if (!umidArMax.equals(other.umidArMax))
-			return false;
-		if (umidArMin == null) {
-			if (other.umidArMin != null)
-				return false;
-		} else if (!umidArMin.equals(other.umidArMin))
+		} else if (!descricao.equals(other.descricao))
 			return false;
 		if (umidSoloMax == null) {
 			if (other.umidSoloMax != null)

@@ -32,38 +32,36 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="tempMin">TempMin </label>
+                                <label for="tempMin">Temperatura Mínima: </label>
                    				 <input type="text" class="form-control" name="tempMin" id="tempMin" maxlength="20" placeholder="MIN">              				 
                             </div>
                              <div class="form-group col-md-6">
-                                <label for="tempMax">TempMax </label>
+                                <label for="tempMax">Temperatura Máxima: </label>
                    				 <input type="text" class="form-control" name="tempMax" id="tempMax" maxlength="20" placeholder="MAX">              				 
                             </div>
                             </div>
 							
-							<div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="umidArMin">UmidArMin</label>
-                   				 <input type="text" class="form-control" name="umidArMin" id="umidArMin" maxlength="20" placeholder="MIN">
-                            </div>
-                            
-                             <div class="form-group col-md-6">
-                                <label for="umidArMax">UmidArMax</label>
-                   				 <input type="text" class="form-control" name="umidArMax" id="umidArMax" maxlength="20" placeholder="MAX">              				 
-                            </div>
-                            </div>
                             
                             <div class="row">
                             <div class="form-group col-md-6">
-                    			<label for="umidSoloMin">UmidSoloMin</label>
+                    			<label for="umidSoloMin">Umididade do Solo Mínima:</label>
 								 <input type="text" class="form-control" name="umidSoloMin" id="umidSoloMin" maxlength="20" placeholder="MIN">
                				 </div>
                				 
                				  <div class="form-group col-md-6">
-                                <label for="umidSoloMax">UmidSoloMax </label>
+                                <label for="umidSoloMax">Umidade do Solo Máxima: </label>
                    				 <input type="text" class="form-control" name="umidSoloMax" id="umidSoloMax" maxlength="20" placeholder="MAX">              				 
                             </div>               				 
                         </div>
+                        
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="descricao">Comentários: </label>
+                   				 <textarea id="descricao" name="descricao" rows="3" cols="75" placeholder="Escreva um comentário aqui."></textarea>
+                   			</div>
+                   			</div>
+                   			
+                   			
                         <hr />
                         <div id="actions" class="row">
                             <div class="col-md-12">

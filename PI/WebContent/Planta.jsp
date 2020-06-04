@@ -46,22 +46,6 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <p><strong>UmidArMin</strong>
-                    </p>
-                    <p>
-                        ${planta.umidArMin}
-                    </p>
-                </div>
-                <div class="col-md-12">
-                    <p><strong>UmidArMax</strong>
-                    </p>
-                    <p>
-                        ${planta.umidArMax}
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
                     <p><strong>UmidSoloMin</strong>
                     </p>
                     <p>
@@ -76,6 +60,19 @@
                     </p>
                 </div>
             </div>
+            
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <p><strong>Comentários</strong>
+                    </p>
+                    <p>
+                        ${planta.descricao}
+                    </p>
+                </div>
+            </div>
+            
+            
             <hr/>
             <div id="actions" class="row">
                 <div class="col-md-12">

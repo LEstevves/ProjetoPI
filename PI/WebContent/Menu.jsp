@@ -12,10 +12,6 @@
                     </li>
                      <li><a href="Dados.jsp">Dados</a>
                     </li>
-                    <li><a href="AlertaTemp.jsp"></a>
-                    </li>
-                    <li><a href="AlertaUmidSolo.jsp"></a>
-                    </li>
                 </ul>
             </div>
         </div>

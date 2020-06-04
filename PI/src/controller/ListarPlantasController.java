@@ -34,15 +34,29 @@ public class ListarPlantasController extends HttpServlet {
     protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String chave = request.getParameter("data[search]");
-		String acao = request.getParameter("acao");
+		//String chave = request.getParameter("data[search]");
+		//String acao = request.getParameter("acao");
 		VendedorService vendedor = new VendedorService();
 		ArrayList<Planta> lista = null;
 		HttpSession session = request.getSession();
-		
 		 lista = vendedor.listarPlantas();
 	     session.setAttribute("lista", lista);
 	        
+	    
+	     Root dataInfoObject=ThingSpeakService.getDataInfo();
+	     String xtemp = dataInfoObject.getFeeds().get(0).getField1();
+	     double ytemp = Double.parseDouble(xtemp);
+		 //Temperatura
+	  /*  String xtemp = dataInfoObject.getFeeds().get(0).getField1();
+	     int ytemp = Integer.parseInt(xtemp);*/
+	       request.setAttribute("temp", ytemp);
+	     
+	     //Umidade solo 
+	     String xumidSolo = dataInfoObject.getFeeds().get(0).getField3();
+	     int yumidSolo = Integer.parseInt(xumidSolo);
+	      request.setAttribute("umidSolo", yumidSolo);
+	      
+	      
 		/* if (acao.equals("buscar")) {
 			if (chave != null && chave.length() > 0) {
 				lista = vendedor.listarPlantas(chave);
@@ -54,16 +68,7 @@ public class ListarPlantasController extends HttpServlet {
 			session.setAttribute("lista", null);
 		}*/
 		
-		 Root dataInfoObject=ThingSpeakService.getDataInfo();
-		 //Temperatura
-	     String xtemp = dataInfoObject.getFeeds().get(0).getField1();
-	     int ytemp = Integer.parseInt(xtemp);
-	       request.setAttribute("temp", ytemp);
 	     
-	     //Umidade solo 
-	     String xumidSolo = dataInfoObject.getFeeds().get(0).getField2();
-	     int yumidSolo = Integer.parseInt(xumidSolo);
-	      request.setAttribute("umidSolo", yumidSolo);
 
 		RequestDispatcher dispatcher = request
 				.getRequestDispatcher("ListarPlantas.jsp");
