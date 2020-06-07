@@ -27,7 +27,7 @@
           			  	<div class="row">
                 			<div class="form-group col-md-12">
                    				 <label for="nome">Nome da Planta:</label>
-                    			<input type="text" class="form-control" name="nome" id="nome" required maxlength="100" placeholder="nome completo" >
+                    			<input type="text" class="form-control" name="nome" id="nome" required maxlength="100" placeholder="Nome da Planta" >
                     		</div>
                         </div>
                         <div class="row">
@@ -66,7 +66,7 @@
                         <div id="actions" class="row">
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary" name="acao" value="Criar">Salvar</button>
-                                <a href="ListarPlantas.jsp" class="btn btn-default">Cancelar</a>
+                                <a href="listar_plantas.do" class="btn btn-default">Cancelar</a>
                             </div>
                         </div>
                     </form>
